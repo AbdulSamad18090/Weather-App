@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const darkmodeSlice = createSlice({
   name: "DarkmodeSlice",
   initialState: {
-    isDarkmode: localStorage.getItem("isDarkmode") === "true",
+    isDarkmode: localStorage.getItem("isDarkmode") === "true" || true,
   },
   reducers: {
     toggleMode: (state, action) => {

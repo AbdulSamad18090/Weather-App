@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const unitSlice = createSlice({
   name: "UnitSlice",
   initialState: {
-    isCelcius: localStorage.getItem("isCelcius") === "true",
-    isFahren: localStorage.getItem("isFahren") === "true",
+    isCelcius: localStorage.getItem("isCelcius") === "true" || true,
+    isFahren: localStorage.getItem("isFahren") === "true" || false,
   },
   reducers: {
     toggleUnit: (state, action) => {
