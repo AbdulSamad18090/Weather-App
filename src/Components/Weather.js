@@ -30,7 +30,7 @@ const Weather = () => {
     >
       <div
         className={`${
-          theme.isDarkmode ? "" : "text-primary2"
+          theme.isDark ? "" : "text-primary2"
         } shadow-sm shadow-secondary1 border border-secondary1 p-2 rounded-lg`}
       >
         {loading || error !== null || !weatherData ? (
@@ -61,12 +61,12 @@ const Weather = () => {
           <div className=" relative">
             <h1
               className={`font-bold text-4xl ${
-                theme.isDarkmode ? "text-secondary2" : "text-secondary1"
+                theme.isDark ? "text-secondary2" : "text-secondary1"
               } `}
             >{`${weatherData.location.name}`}</h1>
             <p
               className={`${
-                theme.isDarkmode ? "text-secondary1" : "text-secondary1"
+                theme.isDark ? "text-secondary1" : "text-secondary1"
               } text-secondary1`}
             >{`${weatherData.location.region}, ${weatherData.location.country}`}</p>
             <div className=" mb-4">
@@ -106,7 +106,7 @@ const Weather = () => {
       {weatherData !== null && error === null ? (
         <div
           className={`${
-            theme.isDarkmode ? "" : "text-primary2"
+            theme.isDark ? "" : "text-primary2"
           } grid grid-cols-2 gap-2`}
         >
           <Card
@@ -124,10 +124,11 @@ const Weather = () => {
             text={"Forcast"}
             value={`hour by hour future weather `}
             className={"rounded-lg col-span-2"}
+            forecast={weatherData.forecast.forecastday[0]}
           />
         </div>
       ) : (
-        <div className={`${theme.isDarkmode ? "" : "text-primary2"}`}>
+        <div className={`${theme.isDark ? "" : "text-primary2"}`}>
           <div className=" w-full h-full flex flex-col justify-center items-center">
             <img src="/images/Animation - waiting.gif" alt="" width={"100px"} />
             <p>Waiting for data...</p>

@@ -1,10 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const storedIsCelcius = localStorage.getItem("isCelcius");
+const storedIsFahren = localStorage.getItem("isFahren");
+
 const unitSlice = createSlice({
   name: "UnitSlice",
   initialState: {
-    isCelcius: localStorage.getItem("isCelcius") === "true" || true,
-    isFahren: localStorage.getItem("isFahren") === "true" || false,
+    isCelcius:
+      storedIsCelcius === null ? true : JSON.parse(storedIsCelcius), // Parse the retrieved value
+    isFahren:
+      storedIsFahren === null ? false : JSON.parse(storedIsFahren), // Parse the retrieved value
   },
   reducers: {
     toggleUnit: (state, action) => {

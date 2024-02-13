@@ -25,16 +25,16 @@ const Header = () => {
   return (
     <header
       className={`${
-        theme.isDarkmode ? "bg-primary2" : " bg-secondary2"
+        theme.isDark ? "bg-primary2" : " bg-secondary2"
       } transition-all duration-1000 p-2 md:px-10 px-4 flex justify-between items-center`}
     >
       <div className="flex items-center">
         <FaCloudSunRain
-          className={`${theme.isDarkmode ? "" : "text-primary3"} text-[30px]`}
+          className={`${theme.isDark ? "" : "text-primary3"} text-[30px]`}
         />
         <h1
           className={`${
-            theme.isDarkmode ? "" : "text-primary3"
+            theme.isDark ? "" : "text-primary3"
           } font-semibold mx-2 sm:block hidden`}
         >
           Weather.Io
@@ -49,7 +49,7 @@ const Header = () => {
           type="text"
           placeholder="Search location..."
           className={`${
-            theme.isDarkmode ? "" : "text-primary3 placeholder:text-primary3"
+            theme.isDark ? "" : "text-primary3 placeholder:text-primary3"
           } bg-transparent text-sm mx-2 focus:outline-none`}
           value={search}
           onChange={(e) => {
@@ -58,7 +58,7 @@ const Header = () => {
         />
         <AiOutlineSend
           type="submit"
-          className={`${theme.isDarkmode ? "" : "text-primary3"} ${
+          className={`${theme.isDark ? "" : "text-primary3"} ${
             search === "" ? "text-secondary1" : "text-red-500 cursor-pointer"
           }`}
           onClick={handleSearch}

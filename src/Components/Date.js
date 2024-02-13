@@ -19,7 +19,7 @@ const DateComponent = () => {
   return (
     <div
       className={`font-bold ${
-        theme.isDarkmode ? "text-secondary2" : "text-secondary1"
+        theme.isDark ? "text-secondary2" : "text-secondary1"
       } sm:text-2xl text-lg`}
     >
       {formattedDate}

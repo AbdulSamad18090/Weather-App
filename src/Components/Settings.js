@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoMdClose } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
-import { Radio } from "@material-tailwind/react";
+import { Radio, Switch } from "@material-tailwind/react";
 import { toggleUnit } from "../Store/Slices/UnitSlice";
+import { toggleMode } from "../Store/Slices/DarkmodeSlice";
 
 const Settings = () => {
   const theme = useSelector((state) => state.DarkmodeSlice);
@@ -31,7 +32,7 @@ const Settings = () => {
       {showDropdown && (
         <div
           className={`absolute top-8 w-[200px] z-50 ${
-            theme.isDarkmode
+            theme.isDark
               ? "bg-primary3 shadow-sm shadow-secondary1"
               : "bg-secondary2 text-primary3 shadow-sm shadow-secondary1"
           } p-2 rounded shadow transition-all duration-1000`}
@@ -40,7 +41,7 @@ const Settings = () => {
             <span>
               <IoSettingsOutline className="mr-2" />
             </span>
-            Unit Settings
+            Units
           </h1>
           <hr className="border-secondary1" />
           <ul>
@@ -60,6 +61,33 @@ const Settings = () => {
               defaultChecked={unitData.isFahren}
               onChange={() => {
                 dispatch(toggleUnit());
+              }}
+            />
+          </ul>
+          <h1 className="flex items-center pb-2">
+            <span>
+              <IoSettingsOutline className="mr-2" />
+            </span>
+            Color Mode
+          </h1>
+          <hr className="border-secondary1" />
+          <ul className="flex flex-col">
+            <Radio
+              name="theme"
+              color="red"
+              label="Dark"
+              defaultChecked={theme.isDark}
+              onChange={() => {
+                dispatch(toggleMode());
+              }}
+            />
+            <Radio
+              name="theme"
+              color="red"
+              label="Light"
+              defaultChecked={theme.isLight}
+              onChange={() => {
+                dispatch(toggleMode());
               }}
             />
           </ul>
