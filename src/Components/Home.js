@@ -16,7 +16,7 @@ const Home = () => {
       } transition-all duration-1000 text-secondary3`}
     >
       <Header />
-      <div className="flex justify-between items-center w-full px-4 pt-4 md:px-10 ">
+      <div className="flex justify-between items-center w-full px-4 pt-4 md:px-10 transition-all duration-1000 ">
         <Settings />
         <Date />
       </div>

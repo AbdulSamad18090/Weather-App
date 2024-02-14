@@ -24,7 +24,7 @@ const Weather = () => {
 
   return (
     <div
-      className={`grid md:grid-cols-2 grid-cols-1 gap-2 md:px-10 p-4 ${
+      className={`grid md:grid-cols-2 grid-cols-1 gap-2 md:px-10 p-4 transition-all duration-1000 ${
         weatherData === null && error !== null ? "h-fit" : "h-[70%]"
       }`}
     >
@@ -121,8 +121,7 @@ const Weather = () => {
           <Card text={"UV-index"} value={weatherData.current.uv} />
           <Card text={"Wind"} value={`${weatherData.current.wind_kph} kph`} />
           <Card
-            text={"Forcast"}
-            value={`hour by hour future weather `}
+            text={"Forecast"}
             className={"rounded-lg col-span-2"}
             forecast={weatherData.forecast.forecastday[0]}
           />
